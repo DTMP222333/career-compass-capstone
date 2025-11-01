@@ -1,0 +1,1 @@
+using Microsoft.EntityFrameworkCore;using Domain;namespace Infrastructure{public class AppDbContext:DbContext{public AppDbContext(DbContextOptions<AppDbContext> o):base(o){}public DbSet<CareerProfile> CareerProfiles=>Set<CareerProfile>();protected override void OnModelCreating(ModelBuilder b){b.Entity<CareerProfile>().ToTable("CareerProfiles");}}}

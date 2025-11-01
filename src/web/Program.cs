@@ -1,0 +1,1 @@
+var b=Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);b.Services.AddRazorPages();b.Services.AddServerSideBlazor();var a=b.Build();a.UseStaticFiles();a.UseRouting();a.MapBlazorHub();a.MapFallbackToPage("/_Host");a.Run();
