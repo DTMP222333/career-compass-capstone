@@ -3,6 +3,9 @@ using Api.Models;
 using Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System;
+using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
@@ -27,31 +30,72 @@ namespace Api.Controllers
 
             return Ok(results);
         }
-
         [HttpPost("calculate")]
-        public async Task<IActionResult> Calculate([FromBody] NumerologyRequest req)
+        public async Task<IActionResult> Calculate([FromBody] NumerologyRequest request)
         {
-            int lifePath = NumerologyCalculator.GetLifePath(req.DateOfBirth);
-            int expression = NumerologyCalculator.GetExpression(req.FullName);
-            int soulUrge = NumerologyCalculator.GetSoulUrge(req.FullName);
-            int personality = NumerologyCalculator.GetPersonality(req.FullName);
-            int birthDay = NumerologyCalculator.GetBirthDay(req.DateOfBirth);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            // Calculate numerology numbers
+            var lifePath = NumerologyCalculator.GetLifePath(request.DateOfBirth);
+            var expression = NumerologyCalculator.GetExpression(request.FullName);
+            var soulUrge = NumerologyCalculator.GetSoulUrge(request.FullName);
+            var personality = NumerologyCalculator.GetPersonality(request.FullName);
+            var birthday = NumerologyCalculator.GetBirthDay(request.DateOfBirth);
+
+            // Get FULL career meaning from SQL
+            var careerMeaning = await _db.Careers
+                .Where(c => c.LifePath == lifePath)
+                .Select(c => c.Description)
+                .FirstOrDefaultAsync();
+
+            if (careerMeaning == null)
+                careerMeaning = "No career description found.";
+
+            // Get SHORT career title
+            var careerTitle = NumerologyCalculator.GetCareerTitle(lifePath);
+
+            // Create DB result
             var result = new NumerologyResult
             {
-                FullName = req.FullName,
-                DateOfBirth = req.DateOfBirth,
+                FullName = request.FullName,
+                DateOfBirth = request.DateOfBirth,
                 LifePath = lifePath,
                 Expression = expression,
                 SoulUrge = soulUrge,
                 Personality = personality,
-                BirthDay = birthDay
+                BirthDay = birthday,
+
+                // SHORT title goes here ⬇⬇⬇
+                Career = careerTitle,
+
+                CreatedAt = DateTime.UtcNow
             };
 
+            // Save to DB
             _db.NumerologyResults.Add(result);
             await _db.SaveChangesAsync();
 
-            return Ok(result);
+            // Return BOTH title + meaning
+            return Ok(new
+            {
+                id = result.Id,
+                fullName = result.FullName,
+                dateOfBirth = result.DateOfBirth,
+                lifePath = result.LifePath,
+                expression = result.Expression,
+                soulUrge = result.SoulUrge,
+                personality = result.Personality,
+                birthDay = result.BirthDay,
+
+                // Title
+                career = careerTitle,
+
+                // Meaning
+                careerMeaning = careerMeaning,
+
+                createdAt = result.CreatedAt
+            });
         }
     }
 }
