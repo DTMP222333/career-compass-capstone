@@ -1,0 +1,6 @@
+@page "/"
+<h2>Hello, Andrew 👋</h2>
+<p>Blazor Server app running behind IIS.</p>
+<button @onclick="CallApi">Call API /health</button>
+<p>@m</p>
+@code{string m="Not called yet.";async Task CallApi(){using var h=new System.Net.Http.HttpClient();try{var t=await h.GetStringAsync("/api/health");m=$"API says: {t}";}catch(System.Exception ex){m=ex.Message;}}}

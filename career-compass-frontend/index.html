@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Compass</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+        <main class="main">
+            <!-- Landing Page -->
+            <section id="landing-section">
+
+                <div class="landing-box">
+
+                    <div class="login-logo">
+                    <div class="logo-icon-big">🧭</div>
+                    <div class="logo-text">
+                        <h1>Career Compass</h1>
+                        <p>Discover your ideal career path</p>
+                    </div>
+                </div>
+
+                    <div class="inner-card">
+                        <h2 class="landing-title">Find Your Best-Fit Career</h2>
+                        <p class="landing-text">
+                            Find out which career best fits your strengths and personality using
+                            numerology and job-market insights.
+                        </p>
+
+                        <a href="login.html">
+                            <button class="login-button">Start Career Assessment</button>
+                        </a>
+                    </div>
+                    <footer class="footer">
+                        <p>© 2025 Career Compass · Capstone Project</p>
+                    </footer>
+                </div>
+
+            </section>
+
+
+            <!-- Input Form Page -->
+            <section id="form-section" class="card hidden">
+                <h2>Tell us about yourself</h2>
+                <p class="subtitle">
+                    Enter your full name and date of birth to get a personalized career recommendation.
+                </p>
+
+                <form id="assessmentForm" class="form">
+                    <label for="fullName">Full Name</label>
+                    <input type="text"
+                           id="fullName"
+                           name="fullName"
+                           placeholder="Enter your full name"
+                           required />
+
+                    <label for="dob">Date of Birth</label>
+                    <input type="date"
+                           id="dob"
+                           name="dob"
+                           required />
+
+                    <p id="validationMessage" class="error-message hidden"></p>
+
+                    <button type="submit" class="primary-btn">
+                        Get My Recommendation
+                    </button>
+                </form>
+            </section>
+
+            <!-- Loading State -->
+            <section id="loading-section" class="card hidden">
+                <div class="spinner"></div>
+                <h2>Analyzing your profile…</h2>
+                <p>Please wait while we calculate your numerology profile and match it with careers.</p>
+            </section>
+
+            <!-- Results Page -->
+            <section id="result-section" class="card hidden">
+                <h2>Your Career Match</h2>
+                <h3 id="careerName"></h3>
+                <p id="careerDescription"></p>
+
+                <div class="result-actions">
+                    <button id="tryAgainBtn" class="secondary-btn">
+                        Try Again
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error State -->
+            <section id="error-section" class="card hidden">
+                <h2>Oops! Something went wrong.</h2>
+                <p id="errorMessage">
+                    We couldn’t process your request. Please check your details or try again later.
+                </p>
+                <button id="backFromErrorBtn" class="secondary-btn">
+                    Back
+                </button>
+            </section>
+        </main>
+
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Compass - Overview</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="login-wrapper">
+    <div class="login-box" style="max-width: 1200px; width: 95%; padding: 30px 40px;">
+
+        <!-- Header -->
+        <div class="login-logo" style="margin-bottom: 25px;">
+            <div class="logo-icon-big">🧭</div>
+            <div class="logo-text">
+                <h1>Career Compass Dashboard</h1>
+                <p>Explore how your strengths and skills align with your recommended career.</p>
+            </div>
+        </div>
+
+        <!-- ================= FULL-WIDTH: CAREER MEANING ================= -->
+        <div class="dashboard-card full-width-card">
+            <h3>Career Meaning</h3>
+            <p id="careerDescription">Loading...</p>
+        </div>
+
+        <!-- ================= TWO COLUMN LAYOUT ================= -->
+        <div class="learnmore-grid">
+
+            <!-- LEFT COLUMN -->
+            <div class="left-column">
+
+                <!-- Core Numbers -->
+                <div class="dashboard-card">
+                    <h3>Your Core Numbers</h3>
+
+                    <div class="num-box">
+                        <div class="num-title">Life Path</div>
+                        <div id="lifePathNum" class="num-value">0</div>
+                    </div>
+
+                    <div class="num-box">
+                        <div class="num-title">Expression</div>
+                        <div id="expressionNum" class="num-value">0</div>
+                    </div>
+
+                    <div class="num-box">
+                        <div class="num-title">Soul Urge</div>
+                        <div id="soulUrgeNum" class="num-value">0</div>
+                    </div>
+
+                    <div class="num-box">
+                        <div class="num-title">Personality</div>
+                        <div id="personalityNum" class="num-value">0</div>
+                    </div>
+
+                    <div class="num-box">
+                        <div class="num-title">Birth Number</div>
+                        <div id="birthDayNum" class="num-value">0</div>
+                    </div>
+                </div>
+
+                <!-- Traits Breakdown -->
+                <div class="dashboard-card">
+                    <h3>Traits Breakdown</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+
+            </div>
+<!-- RIGHT COLUMN -->
+<div class="right-column">
+
+    <div class="dashboard-card skills-card">
+        <h3>Skills Breakdown</h3>
+        <div class="donut-wrapper">
+            <canvas id="donutChart"></canvas>
+        </div>
+    </div>
+
+    <!-- MASTER NUMBER BOX  -->
+    <div class="dashboard-card master-info-card">
+        <h3>Master Numbers</h3>
+        <p>
+            If any of your numbers is <strong>11</strong>, <strong>22</strong>, or <strong>33</strong>, 
+            you have a <strong>Master Number</strong>. These numbers carry higher potential and combine the strengths 
+            of their base numbers <span style="opacity:0.7;">(2, 4, or 6)</span> with enhanced intuition, leadership, 
+            or compassion.
+        </p>
+    </div>
+
+</div>
+
+
+        </div>
+        
+        <div class="center-toggle">
+    <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6l8 8 8-8" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4 10l8 8 8-8" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4 14l8 8 8-8" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+</div>
+
+<!-- EXPANDABLE CONTENT CONTAINER -->
+<div class="expand-box">
+    
+<div class="why-numerology-box">
+    <h2>Why Numerology?</h2>
+    <hr>
+    <br>
+    <p>
+        Numerology has been used for centuries to understand patterns in
+        personality, motivation, and life direction. For our Career Compass
+        project, numerology helps translate your natural strengths into
+        career-aligned insights.  
+        <br><br>
+        Each number represents a specific part of “you”:  
+        <P>• <strong>Life Path</strong> → your natural direction (35%)  </P>
+        <p>• <strong>Expression</strong> → how you operate & communicate (25%)  </p>
+        <p>• <strong>Personality</strong> → how others see you (20%)  </p>
+        <p>• <strong>Soul Urge</strong> → your inner motivation (10%)  </p>
+        <p>• <strong>Birth Number</strong> → your innate gift (10%)  </p>
+        <br>
+        Together, these form a complete picture of your traits — allowing the system to suggest careers that match your strengths.
+    </p>
+    <br>
+</div>
+<hr>
+
+
+<div class="user-instructions-box">
+    <h2>How to Use This Section</h2>
+    <hr>
+    <br>
+
+    <p>Users are instructed to:
+
+        <P>• Find their five numbers</P> 
+        <p>• Read the description + statement for each number</p>
+        <p>• Copy the five statements</p>
+        <p>• Combine them into a personal narrative such as:</p>
+
+    <blockquote class="instruction-example">
+        “As a Life Path 7, I'm naturally analytical and introspective.  
+        With an Expression 5, I communicate with adaptability and versatility.  
+        My Personality 8 gives me a strong presence and ambition.  
+        My Soul Urge 6 motivates me to support and care for others.  
+        And my Birth Number 1 gives me natural leadership instincts.”
+    </blockquote>
+
+        This gives the user a complete and personalized career identity paragraph.
+    </p>
+</div>
+<br>
+<hr>
+
+    <h2>About Your Numbers</h2>
+    <hr>
+    
+<div class="accordion">
+
+    <!-- LIFE PATH -->
+    <div class="accordion-item">
+        <button class="accordion-header">Life Path Number — Natural Trajectory (35%)</button>
+        <div class="accordion-content">
+            <p><strong>Life Path 1 – The Leader:</strong> You’re built for independence and direction-setting.<br>
+            <em>Statement:</em> “I naturally take the lead and thrive when I’m creating my own path.”</p>
+
+            <p><strong>Life Path 2 – The Harmonizer:</strong> You bring peace, balance, and cooperation.<br>
+            <em>Statement:</em> “I excel when I’m building bridges and supporting harmony.”</p>
+
+            <p><strong>Life Path 3 – The Creator:</strong> You shine through expression, creativity, and inspiration.<br>
+            <em>Statement:</em> “I’m at my best when I’m uplifting, expressing, and creating.”</p>
+
+            <p><strong>Life Path 4 – The Builder:</strong> You create stability through structure and clarity.<br>
+            <em>Statement:</em> “I succeed when I work with systems, plans, and long-term foundations.”</p>
+
+            <p><strong>Life Path 5 – The Explorer:</strong> You thrive in freedom, movement, and dynamic environments.<br>
+            <em>Statement:</em> “I grow when I’m embracing change, flexibility, and adventure.”</p>
+
+            <p><strong>Life Path 6 – The Caregiver:</strong> You’re nurturing, responsible, and motivated to protect others.<br>
+            <em>Statement:</em> “I excel when I’m supporting, guiding, or caring for people.”</p>
+
+            <p><strong>Life Path 7 – The Analyst:</strong> You seek depth, meaning, and mastery of knowledge.<br>
+            <em>Statement:</em> “I thrive when I’m researching, analyzing, or uncovering truth.”</p>
+
+            <p><strong>Life Path 8 – The Executive:</strong> You are powerful, strategic, and business-focused.<br>
+            <em>Statement:</em> “I excel in leadership roles where I manage resources and create results.”</p>
+
+            <p><strong>Life Path 9 – The Humanitarian:</strong> You carry compassion, wisdom, and a universal outlook.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m helping others, expressing compassion, or contributing to the world.”</p>
+        </div>
+    </div>
+
+    <!-- EXPRESSION -->
+    <div class="accordion-item">
+        <button class="accordion-header">Expression Number — How You Operate & Communicate (25%)</button>
+        <div class="accordion-content">
+            <p><strong>Expression 1 – Initiator / Decisive:</strong> You act with confidence and lead naturally.<br>
+            <em>Statement:</em> “I express myself through decisive action and strong leadership.”</p>
+
+            <p><strong>Expression 2 – Diplomat / Supportive:</strong> You create harmony and communicate with empathy.<br>
+            <em>Statement:</em> “I express myself through cooperation, patience, and emotional intelligence.”</p>
+
+            <p><strong>Expression 3 – Communicator / Creative:</strong> You bring ideas to life and energize others.<br>
+            <em>Statement:</em> “I express myself through creativity, connection, and communication.”</p>
+
+            <p><strong>Expression 4 – Organizer / Practical:</strong> You bring order and stability to tasks.<br>
+            <em>Statement:</em> “I express myself through structure, reliability, and consistency.”</p>
+
+            <p><strong>Expression 5 – Adaptable / Persuasive:</strong> You excel in dynamic spaces and influence others.<br>
+            <em>Statement:</em> “I express myself through versatility, enthusiasm, and persuasive energy.”</p>
+
+            <p><strong>Expression 6 – Supporter / Responsible:</strong> You show up with care and stewardship.<br>
+            <em>Statement:</em> “I express myself through nurturing, responsibility, and service.”</p>
+
+            <p><strong>Expression 7 – Thinker / Insightful:</strong> You communicate with depth and precision.<br>
+            <em>Statement:</em> “I express myself through insight, analysis, and thoughtful reflection.”</p>
+
+            <p><strong>Expression 8 – Executive / Ambitious:</strong> You communicate with authority and strategy.<br>
+            <em>Statement:</em> “I express myself through leadership, strategy, and results-driven action.”</p>
+
+            <p><strong>Expression 9 – Visionary / Compassionate:</strong> You express yourself through big ideas and empathy.<br>
+            <em>Statement:</em> “I express myself through vision, creativity, and humanitarian energy.”</p>
+        </div>
+    </div>
+
+    <!-- PERSONALITY -->
+    <div class="accordion-item">
+        <button class="accordion-header">Personality Number — How Others See You (20%)</button>
+        <div class="accordion-content">
+            <p><strong>Personality 1 – Bold / Determined:</strong> Others see you as confident and strong.<br>
+            <em>Statement:</em> “People experience me as capable, focused, and willing to take charge.”</p>
+
+            <p><strong>Personality 2 – Gentle / Cooperative:</strong> Warm, polite, and approachable.<br>
+            <em>Statement:</em> “People experience me as kind, diplomatic, and easy to work with.”</p>
+
+            <p><strong>Personality 3 – Social / Expressive:</strong> Creative, expressive, and engaging.<br>
+            <em>Statement:</em> “People experience me as expressive, friendly, and full of ideas.”</p>
+
+            <p><strong>Personality 4 – Grounded / Steady:</strong> Practical, dependable, structured.<br>
+            <em>Statement:</em> “People experience me as organized and reliable.”</p>
+
+            <p><strong>Personality 5 – Curious / Energetic:</strong> Flexible, open-minded, adventurous.<br>
+            <em>Statement:</em> “People see me as adaptable and energetic.”</p>
+
+            <p><strong>Personality 6 – Caring / Trustworthy:</strong> Supportive, nurturing, responsible.<br>
+            <em>Statement:</em> “People experience me as warm, caring, and dependable.”</p>
+
+            <p><strong>Personality 7 – Reserved / Thoughtful:</strong> Insightful, analytical, introspective.<br>
+            <em>Statement:</em> “People see me as intelligent, observant, and private.”</p>
+
+            <p><strong>Personality 8 – Powerful / Professional:</strong> Authoritative, strong, influential.<br>
+            <em>Statement:</em> “People see me as capable and naturally commanding.”</p>
+
+            <p><strong>Personality 9 – Wise / Compassionate:</strong> Inspiring, thoughtful, empathic.<br>
+            <em>Statement:</em> “People experience me as understanding, uplifting, and wise.”</p>
+        </div>
+    </div>
+
+    <!-- SOUL URGE -->
+    <div class="accordion-item">
+        <button class="accordion-header">Soul Urge Number — Inner Motivation & Fulfillment (10%)</button>
+        <div class="accordion-content">
+            <p><strong>Soul Urge 1 – Achievement:</strong> You want mastery, independence, and accomplishment.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m achieving and standing in my personal power.”</p>
+
+            <p><strong>Soul Urge 2 – Harmony:</strong> You seek peace, connection, cooperation.<br>
+            <em>Statement:</em> “I’m fulfilled when I create harmony and support others.”</p>
+
+            <p><strong>Soul Urge 3 – Creativity:</strong> You desire expression, joy, inspiration.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m creating, expressing, or inspiring.”</p>
+
+            <p><strong>Soul Urge 4 – Security:</strong> You crave stability, clarity, order.<br>
+            <em>Statement:</em> “I’m fulfilled when life is dependable and structured.”</p>
+
+            <p><strong>Soul Urge 5 – Freedom:</strong> You desire flexibility, adventure, change.<br>
+            <em>Statement:</em> “I’m fulfilled when I have freedom, movement, and variety.”</p>
+
+            <p><strong>Soul Urge 6 – Responsibility:</strong> You want to support, nurture, protect.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m caring for those I love.”</p>
+
+            <p><strong>Soul Urge 7 – Truth:</strong> You seek meaning, knowledge, and inner clarity.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m learning or exploring deeper truths.”</p>
+
+            <p><strong>Soul Urge 8 – Power:</strong> You want impact, success, achievement.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m building something influential.”</p>
+
+            <p><strong>Soul Urge 9 – Compassion:</strong> You desire to uplift humanity.<br>
+            <em>Statement:</em> “I’m fulfilled when I’m helping others or contributing to the world.”</p>
+        </div>
+    </div>
+
+    <!-- BIRTH NUMBER -->
+    <div class="accordion-item">
+        <button class="accordion-header">Birth Number — Natural Talent & Innate Gift (10%)</button>
+        <div class="accordion-content">
+            <p><strong>Destiny 1 – Innovator:</strong> Growing toward originality and leadership.<br>
+            <em>Statement:</em> “I’m evolving into someone who leads with courage and innovation.”</p>
+
+            <p><strong>Destiny 2 – Connector:</strong> Becoming a harmonizer and mediator.<br>
+            <em>Statement:</em> “I’m evolving into someone who unites and brings people together.”</p>
+
+            <p><strong>Destiny 3 – Creator:</strong> Developing into a communicator or artistic force.<br>
+            <em>Statement:</em> “I inspire others through creativity and expression.”</p>
+
+            <p><strong>Destiny 4 – Builder:</strong> Becoming a stabilizer and system-creator.<br>
+            <em>Statement:</em> “I’m evolving into someone who builds lasting foundations.”</p>
+
+            <p><strong>Destiny 5 – Explorer:</strong> Growing through change and adaptability.<br>
+            <em>Statement:</em> “I’m evolving into someone who thrives in movement and transformation.”</p>
+
+            <p><strong>Destiny 6 – Guardian:</strong> Becoming nurturing, responsible, uplifting.<br>
+            <em>Statement:</em> “I’m evolving into someone who leads with love and responsibility.”</p>
+
+            <p><strong>Destiny 7 – Teacher:</strong> Progressing toward wisdom, insight, mastery.<br>
+            <em>Statement:</em> “I’m evolving into someone who teaches and reveals truth.”</p>
+
+            <p><strong>Destiny 8 – Leader:</strong> Becoming influential, confident, powerful.<br>
+            <em>Statement:</em> “I’m evolving into someone who leads organizations or movements.”</p>
+
+            <p><strong>Destiny 9 – Humanitarian:</strong> Becoming compassionate, giving, visionary.<br>
+            <em>Statement:</em> “I’m evolving into someone who uplifts humanity with heart and vision.”</p>
+        </div>
+    </div>
+
+    <!-- MASTER NUMBERS SECTION -->
+<div class="accordion-item">
+    <button class="accordion-header">Master Numbers — Deep Meaning & Interpretation</button>
+    <div class="accordion-content">
+
+          <h3>Master Number 11 — The Intuitive (Across All Types)</h3>
+        <p><strong>Core Theme:</strong> intuition, illumination, sensitivity, spiritual insight.</p>
+        
+        <p><strong>Life Path 11 – The Visionary Messenger:</strong> You bring heightened intuition and insight, helping others see possibilities and truths they may overlook.<br>
+        <em>Statement:</em> “I walk a path of illumination, guided by intuition, and I inspire others through my insight and presence.”</p>
+
+        <p><strong>Expression 11 – The Inspired Communicator:</strong> Your ideas carry depth and emotional clarity, allowing your words to influence, inspire, and guide others.<br>
+        <em>Statement:</em> “I express inspired ideas with clarity and impact, naturally elevating others through my communication.”</p>
+
+        <p><strong>Soul Urge 11 – The Spiritual Receiver:</strong> You’re drawn to meaning, self-discovery, and a deeper connection with life, often guided by strong intuition.<br>
+        <em>Statement:</em> “I feel most fulfilled when I follow my intuition and deepen my spiritual connection to life.”</p>
+
+        <p><strong>Personality 11 – The Perceptive Beacon:</strong> People experience you as intuitive, aware, and insightful—someone who brings clarity to complex situations.<br>
+        <em>Statement:</em> “I naturally radiate intuitive awareness, and people look to me for clarity and perspective.”</p>
+
+        <p><strong>Birth Number 11 – The Natural Intuitive:</strong> You naturally sense patterns, emotions, and deeper meanings, often understanding situations before others do.<br>
+        <em>Statement:</em> “My intuition is naturally strong, guiding me as I interpret the world with deeper awareness.”</p>
+
+        <hr>
+
+        <h3>Master Number 22 — The Master Builder</h3>
+        <p><strong>Core Theme:</strong> structure, manifestation, turning big visions into reality.</p>
+
+         <p><strong>Life Path 22 – The Architect of Impact:</strong> You’re able to turn ambitious ideas into practical results, building systems or projects that create lasting impact.<br>
+        <em>Statement:</em> “I am designed to create lasting impact by transforming vision into real, practical results.”</p>
+
+        <p><strong>Expression 22 – The Strategic Creator:</strong> You bring structure, planning, and long-term thinking to everything you do, allowing ideas to become achievable steps.<br>
+        <em>Statement:</em> “I bring order, structure, and strategy to ideas, turning potential into tangible achievement.”</p>
+
+        <p><strong>Soul Urge 22 – The Master Manifestor:</strong> You feel fulfilled when you create meaningful work that helps others, especially when it brings stability and growth.<br>
+        <em>Statement:</em> “I feel fulfilled when I build something real, lasting, and transformative for others.”</p>
+
+        <p><strong>Personality 22 – The Grounded Visionary:</strong> Others see you as capable, reliable, and visionary—someone who can handle big goals with discipline and skill.<br>
+        <em>Statement:</em> “People see me as someone who makes the impossible possible through commitment and skill.”</p>
+
+        <p><strong>Birth Number 22 – The Natural Builder:</strong> You naturally organize, plan, and construct solutions, often taking a steady and practical approach to challenges.<br>
+        <em>Statement:</em> “I approach life with the ability to organize, build, and create practical solutions.”</p>
+
+        <hr>
+
+        <h3>Master Number 33 — The Master Teacher</h3>
+        <p><strong>Core Theme:</strong> compassion, emotional wisdom, healing, service.</p>
+
+        <p><strong>Life Path 33 – The Healer-Teacher:</strong> You uplift, guide, and support others through empathy, wisdom, and a genuine desire to help.<br>
+        <em>Statement:</em> “I walk a path of healing leadership, where my compassion and wisdom elevate those around me.”</p>
+
+        <p><strong>Expression 33 – The Compassionate Influencer:</strong> You communicate with warmth and emotional depth, often inspiring others toward personal growth and healing.<br>
+        <em>Statement:</em> “I communicate with warmth and insight, using compassion to empower and uplift others.”</p>
+
+        <p><strong>Soul Urge 33 – The Loving Servant:</strong> Your deepest fulfillment comes from helping others heal, grow, and reconnect with love and inner peace.<br>
+        <em>Statement:</em> “I feel most alive when I help others heal, grow, and return to love.”</p>
+
+        <p><strong>Personality 33 – The Radiant Supporter:</strong> People see you as nurturing, emotionally wise, and comforting—someone who brings stability and compassion.<br>
+        <em>Statement:</em> “I naturally radiate emotional safety, wisdom, and compassion to the people around me.”</p>
+
+        <p><strong>Birth Number 33 – The Innate Healer:</strong> You carry emotional understanding and a natural ability to soothe and support others from an early age.<br>
+        <em>Statement:</em> “I move through life with a natural gift for bringing comfort, understanding, and healing.”</p>
+
+    </div>
+</div>
+
+
+    </div>
+
+
+</div>
+
+       <div class="bottom-row">
+    
+    <!-- LEFT: Back Button -->
+    <button class="secondary-btn" onclick="window.location.href='assessment.html'">
+        Back to Results
+    </button>
+
+
+    <!-- RIGHT: Download Button -->
+    <button id="downloadPdfBtn" class="secondary-btn download-btn">
+        Download PDF
+    </button>
+
+</div>
+ 
+        <div class="back-link" onclick="window.location.href='index.html'">
+            ← Back to Career Compass home
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 Career Compass · Capstone Project</p>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+    // Read saved result from the assessment page
+    const savedResult = localStorage.getItem("careerResult");
+
+    if (!savedResult) {
+        alert("No data found. Please take the assessment again.");
+        window.location.href = "login.html";
+    }
+
+    const result = JSON.parse(savedResult);
+    // Full detailed Life Path explanations (exact text)
+const detailedLifePathExplanation = {
+    1: `Life Path 1 — Leadership, Management, Entrepreneurship
+
+Life Path 1 individuals are natural initiators—confident, independent thinkers with a strong drive to build, create, and lead. Their energy is pioneering, future-focused, and bold. They thrive when given authority or the freedom to operate without excessive oversight. This number embodies originality, determination, and the courage to take calculated risks.
+
+In career contexts, 1s excel in fields where decisive action is valued. They naturally fit into leadership, management, operations oversight, innovation, business ownership, and strategy-driven roles. Their ability to make judgment calls, set direction, and inspire momentum makes them strong candidates for executive paths, project leadership, or organizational transformation.
+
+How to Own This Number:
+Lead with confidence, trust your instincts, and don’t wait for permission to build what you see.`,
+
+    2: `Life Path 2 — HR, Counseling, Teaching, Mediation
+
+Life Path 2 individuals are diplomatic, intuitive, and gifted at understanding people. They thrive in cooperative environments and excel at creating harmony. Their natural sensitivity, emotional intelligence, and ability to see all sides of a situation make them powerful bridges between people and ideas.
+
+In careers, 2s shine in human resources, counseling, education, mediation, social services, conflict resolution, assistant or support roles, and team-centered environments. They help teams function better by ensuring communication flows, emotions are acknowledged, and misunderstandings are resolved.
+
+How to Own This Number:
+Use your empathy as a skill—not a burden—and trust that your calm presence is a real strength in any workspace.`,
+
+    3: `Life Path 3 — Design, Writing, Communication, Arts
+
+Life Path 3s are the communicators and creators of the world—imaginative, expressive, charismatic, and full of ideas. Their creativity flows naturally, often through writing, speaking, art, design, humor, or performance. They bring joy and originality to any environment.
+
+Career-wise, 3s flourish in creative industries, including design, content creation, marketing, writing, performing arts, UI/UX, branding, entertainment, public speaking, and social media. They excel in roles requiring visual storytelling, building brand identity, or crafting narratives.
+
+How to Own This Number:
+Create consistently, express freely, and don’t censor your voice—your creativity is your career power.`,
+
+    4: `Life Path 4 — Engineering, IT, Operations, Project Management
+
+Life Path 4 individuals bring structure, discipline, logic, and reliability to everything they touch. They thrive when building systems, optimizing processes, and bringing order where there is chaos. Their mindset is methodical and detail-oriented.
+
+In careers, 4s rise in roles that depend on precision and consistency: engineering, IT, cybersecurity, operations, analytics, project management, logistics, documentation, and quality assurance. They make excellent system-builders and organizers.
+
+How to Own This Number:
+Embrace structure as your superpower and trust that your consistency creates long-term success.`,
+
+    5: `Life Path 5 — Sales, Marketing, Travel, Hospitality
+
+Life Path 5s are adventurous, adaptable, and energized by movement—mentally, emotionally, and physically. They bring openness, curiosity, and versatility to every environment and excel in fast-paced roles.
+
+Professionally, 5s thrive in sales, marketing, travel-related fields, hospitality, entertainment, communications, public engagement, and roles requiring flexibility or agility. They perform best when their job allows them freedom, variety, and mobility.
+
+How to Own This Number:
+Never cage your energy—channel your curiosity into skills that let you move, explore, and innovate.`,
+
+    6: `Life Path 6 — Healthcare, Education, Coaching
+
+Life Path 6 individuals are nurturing, responsible, and community-focused. They carry a natural instinct to support, guide, and uplift others. Harmony, family, and service come naturally to them.
+
+In careers, 6s excel in healthcare, education, coaching, mentorship, customer support, human development, community roles, wellness, and leadership positions tied to service. They bring warmth, stability, and compassion to their work environments.
+
+How to Own This Number:
+Lead with care and integrity—your ability to support others is a professional advantage, not a limitation.`,
+
+    7: `Life Path 7 — Research, Data Science, IT, Analysis
+
+Life Path 7s are analytical, introspective, wise, and deeply curious about how things work. They crave truth, logic, and mastery. Their minds are sharp, intuitive, and observant—making them natural investigators.
+
+Career paths aligned with 7s include research, cybersecurity, machine learning, cloud computing, analytics, IT, scientific inquiry, forensics, and academic paths. They excel in environments requiring deep thinking, precision, and intellectual independence.
+
+How to Own This Number:
+Honor your need for depth—your insight is a gift, and your quiet mastery sets you apart.`,
+
+    8: `Life Path 8 — Finance, Business, Real Estate, Executive Roles
+
+Life Path 8 individuals possess powerful ambition, discipline, and business sense. They are natural strategists with strong executive energy. Their mindset gravitates toward goals, achievement, structure, and measurable success.
+
+Career alignment for 8 includes finance, investing, accounting, real estate, business operations, executive management, entrepreneurship, and corporate leadership. They thrive when overseeing resources, building ventures, or managing high-level systems.
+
+How to Own This Number:
+Move with strategy—own your ambition and lead with integrity so your success comes with purpose.`,
+
+    9: `Life Path 9 — Creative, Nonprofit, Humanitarian Work
+
+Life Path 9s are compassionate, idealistic, and artistic. They possess an emotional depth and social awareness that makes them natural helpers, healers, and creators. Their worldview is big-picture and heart-centered.
+
+In their careers, 9s flow into creative professions, counseling, nonprofit leadership, humanitarian work, teaching, artistry, social work, healing arts, and advocacy. They thrive when their work uplifts others or expresses beauty, meaning, and truth.
+
+How to Own This Number:
+Lead with heart—your compassion and creativity are your greatest professional strengths.`
+};
+
+// === Career Meaning on Learn More (long version) ===
+const careerDescriptionEl = document.getElementById("careerDescription");
+
+// Use the long explanation for THIS user's life path
+const longText =
+    detailedLifePathExplanation[result.lifePath] ||
+    "No detailed information available.";
+
+// Keep line breaks as paragraphs
+careerDescriptionEl.innerHTML = longText.replace(/\n\n/g, "<br><br>");
+
+
+    // === Color palette based on numerology number ===
+    const numberColors = {
+        1: "#E63946", // Red
+        2: "#4A90E2", // Blue
+        3: "#F4C430", // Gold
+        4: "#2E7D32", // Green
+        5: "#F28C28", // Orange
+        6: "#E57373", // Rose Pink
+        7: "#5E35B1", // Indigo
+        8: "#C19A6B", // Bronze
+        9: "#00897B",  // Teal
+        11: "#D32F2F", // Dark Red
+        22: "#1976D2", // Dark Blue
+        33: "#FBC02D"  // Dark Gold                                                     
+    };
+
+    const colorFor = (num) => numberColors[num] || "#0057b7"; // fallback
+
+    // === Fill the core number values ===
+    const lifePathEl       = document.getElementById("lifePathNum");
+    const expressionEl     = document.getElementById("expressionNum");
+    const soulUrgeEl       = document.getElementById("soulUrgeNum");
+    const personalityEl    = document.getElementById("personalityNum");
+    const birthDayEl       = document.getElementById("birthDayNum");
+
+    lifePathEl.textContent    = result.lifePath       ?? 0;
+    expressionEl.textContent  = result.expression     ?? 0;
+    soulUrgeEl.textContent    = result.soulUrge       ?? 0;
+    personalityEl.textContent = result.personality    ?? 0;
+    birthDayEl.textContent    = result.birthDay       ?? 0;
+
+    // === Apply colors to JUST the number text ===
+    lifePathEl.style.color    = colorFor(result.lifePath);
+    expressionEl.style.color  = colorFor(result.expression);
+    soulUrgeEl.style.color    = colorFor(result.soulUrge);
+    personalityEl.style.color = colorFor(result.personality);
+    birthDayEl.style.color    = colorFor(result.birthDay);
+
+  
+
+
+
+    // === Data & colors for charts ===
+    const traits = [
+        result.lifePath       ?? 0,
+        result.expression     ?? 0,
+        result.soulUrge       ?? 0,
+        result.personality    ?? 0,
+        result.birthDay       ?? 0
+    ];
+
+    const traitColors = [
+        colorFor(result.lifePath),
+        colorFor(result.expression),
+        colorFor(result.soulUrge),
+        colorFor(result.personality),
+        colorFor(result.birthDay)
+    ];
+
+    // Normalize master numbers for the bar chart
+function normalizeNumber(num) {
+    if (num === 11) return 10;
+    if (num === 22) return 10;
+    if (num === 33) return 10;
+    return num;  // normal numbers 1–9 stay the same
+}
+
+// Convert traits array into normalized values for the chart
+const normalizedTraits = traits.map(n => normalizeNumber(n));
+
+    const barRadius = normalizedTraits.map(value => {
+    return value === 10 
+        ? { topLeft: 6, bottomLeft: 6, topRight: 0, bottomRight: 0 }  // <-- Master numbers
+        : 6;  // normal numbers
+});
+
+    // === Bar Chart (Traits Breakdown) ===
+ new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+        labels: ["Life Path", "Expression", "Soul Urge", "Personality", "Birth Number"],
+        datasets: [{
+            data: traits,
+            backgroundColor: traitColors,
+            borderRadius: 6
+        }]
+    },
+    options: {
+        indexAxis: "y",
+
+        // Smooth grow animation
+        animations: {
+            x: {
+                duration: 1200,   // animation time
+                easing: "easeOutQuart",
+                from: 0           // bars grow from 0 → full value
+            }
+        },
+
+        scales: {
+            x: {
+                beginAtZero: true,
+                max: 10,
+                ticks: { stepSize: 1 }
+            }
+        },
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+
+    // === Donut Chart (Skills Breakdown) ===
+ new Chart(document.getElementById("donutChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Communication", "Leadership", "Technical", "Teamwork", "Problem Solving"],
+        datasets: [{
+            data: traits,
+            backgroundColor: [
+                numberColors[result.lifePath],
+                numberColors[result.expression],
+                numberColors[result.soulUrge],
+                numberColors[result.personality],
+                numberColors[result.birthDay]
+            ]
+        }]
+    },
+    options: {
+    plugins: {
+        legend: {
+            position: "right",
+            align: "center",
+            labels: {
+                boxWidth: 20,   // makes legend compact
+                padding: 12     // reduces spacing so chart grows larger
+            }
+        }
+    },
+    maintainAspectRatio: false  // allows the chart to grow bigger
+}
+
+});
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

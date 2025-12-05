@@ -1,0 +1,40 @@
+## Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.ide
+
+## Ignore build output
+bin/
+obj/
+out/
+Debug/
+Release/
+
+## Ignore IDE workspace
+*.db
+*.db-shm
+*.db-wal
+*.db.tmp
+*.DS_Store
+
+## Ignore Rider/JetBrains files
+.idea/
+*.DotSettings
+
+## Ignore logs
+*.log
+
+## Ignore publish artifacts
+wwwroot/
+*.cache
+staticwebassets*
+
+## Ignore sensitive configs (but keep appsettings.json)
+appsettings.Development.json
+appsettings.Local.json
+
+## Ignore temporary files
+*.tmp
+*.temp

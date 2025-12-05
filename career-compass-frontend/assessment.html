@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Compass - Assessment</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+
+            <!-- Header Same As Login -->
+            <div class="login-logo">
+                <div class="logo-icon-big">🧭</div>
+                <div class="logo-text">
+                    <h1>Career Compass</h1>
+                    <p>Discover your ideal career path</p>
+                </div>
+            </div>
+
+            <!-- LOADING SECTION -->
+            <section id="loading-section">
+                <div class="spinner"></div>
+                <h2 class="login-heading">Analyzing your profile...</h2>
+                <p style="text-align:center; color:#555;">
+                    Please wait while we calculate your numerology profile and match it with a career.
+                </p>
+            </section>
+
+            <!-- RESULT SECTION -->
+            <div id="result-section" class="hidden">
+                <div class="result-card">
+
+                    <div class="result-header">
+                        <h2>Your Career Match</h2>
+                    </div>
+
+                    <div class="result-body">
+                        <h3 id="careerName" class="career-title">Career Title</h3>
+                        <p id="careerDescription" class="career-desc">
+                            Career description will appear here.
+                        </p>
+                    </div>
+
+                    <div class="result-buttons">
+                        <button id="tryAgainBtn" class="secondary-btn">Try Again</button>
+                        <button id="learnMoreBtn" class="primary-btn-outline">Learn More</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- ERROR SECTION -->
+            <section id="error-section" class="hidden">
+                <h2 class="login-heading">Oops! Something went wrong</h2>
+
+                <p style="text-align:center; color:#b91c1c; font-size:15px;" id="errorMessage">
+                    Could not process your assessment. Please try again.
+                </p>
+
+                <button id="backFromErrorBtn" class="login-button" style="margin-top:20px;">
+                    Back
+                </button>
+            </section>
+
+            <footer class="footer">
+                <p>© 2025 Career Compass · Capstone Project</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</htm

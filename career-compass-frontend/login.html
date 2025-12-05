@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Compass - Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+
+            <div class="login-logo">
+                <div class="logo-icon-big">
+                    🧭
+                </div>
+
+                <div class="logo-text">
+                    <h1>Career Compass</h1>
+                    <p>Discover your ideal career path</p>
+                </div>
+            </div>
+
+
+            <h2 class="login-heading">Tell me about yourself</h2>
+
+            <div class="inner-card">
+                <form id="loginForm" class="login-form">
+
+                    <label for="username">Name</label>
+                    <input type="text" id="username" placeholder="Enter your full name" required />
+
+                    <label>Date of Birth</label>
+                    <div class="dob-row">
+
+                        <!-- YEAR -->
+                        <div class="dropdown" id="yearDropdown">
+                            <div class="dropdown-selected">Year</div>
+                            <div class="dropdown-list"></div>
+                        </div>
+
+                        <!-- MONTH -->
+                        <div class="dropdown" id="monthDropdown">
+                            <div class="dropdown-selected">Month</div>
+                            <div class="dropdown-list"></div>
+                        </div>
+
+                        <!-- DAY -->
+                        <div class="dropdown" id="dayDropdown">
+                            <div class="dropdown-selected">Day</div>
+                            <div class="dropdown-list"></div>
+                        </div>
+
+                    </div>
+
+
+                    <button class="login-button">Get my Recommendation</button>
+
+                    <p id="loginError" class="error-message hidden"></p>
+
+                </form>
+            </div>
+
+            <footer class="footer">
+                <p>© 2025 Career Compass · Capstone Project</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

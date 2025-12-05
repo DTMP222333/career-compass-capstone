@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile.api
+    container_name: career-compass-api
+    ports: ["5000:8080"]
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=tcp:REPLACE_ME.database.windows.net,1433;Database=careercompass_dev;Encrypt=True;TrustServerCertificate=False;Authentication=Active Directory Default

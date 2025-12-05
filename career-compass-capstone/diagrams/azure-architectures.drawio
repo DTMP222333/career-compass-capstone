@@ -1,0 +1,30 @@
+<mxfile host="app.diagrams.net" modified="2025-10-31T11:47:00.282695" agent="python-export" version="24.7.10">
+  <diagram id="vm-first" name="VM-First Architecture">
+    <mxGraphModel dx="1536" dy="768" grid="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080">
+      <root><mxCell id="0"/><mxCell id="1" parent="0"/>
+        <mxCell id="u" value="Users" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="60" y="120" width="100" height="50" as="geometry"/></mxCell>
+        <mxCell id="agw" value="Azure Application Gateway (WAF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="220" y="120" width="240" height="60" as="geometry"/></mxCell>
+        <mxCell id="iis" value="VM2: Windows Server IIS (Web UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="500" y="120" width="240" height="60" as="geometry"/></mxCell>
+        <mxCell id="api" value="VM3: Linux (Docker) ASP.NET API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="800" y="120" width="260" height="60" as="geometry"/></mxCell>
+        <mxCell id="sql" value="Azure SQL (Private Endpoint)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="1120" y="120" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="kv" value="Azure Key Vault" style="shape=process;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="1120" y="200" width="220" height="50" as="geometry"/></mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="u" target="agw"/><mxCell id="e2" edge="1" parent="1" source="agw" target="iis"/>
+        <mxCell id="e3" edge="1" parent="1" source="iis" target="api"/><mxCell id="e4" edge="1" parent="1" source="api" target="sql"/>
+        <mxCell id="e5" edge="1" parent="1" source="iis" target="kv"/><mxCell id="e6" edge="1" parent="1" source="api" target="kv"/>
+      </root></mxGraphModel>
+  </diagram>
+  <diagram id="paas" name="PaaS-First Architecture">
+    <mxGraphModel dx="1536" dy="768" grid="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080">
+      <root><mxCell id="0"/><mxCell id="1" parent="0"/>
+        <mxCell id="u" value="Users" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="60" y="120" width="100" height="50" as="geometry"/></mxCell>
+        <mxCell id="fd" value="Azure Front Door (WAF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="220" y="120" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="asw" value="App Service – Web" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="680" y="80" width="180" height="50" as="geometry"/></mxCell>
+        <mxCell id="asa" value="App Service – API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="680" y="160" width="180" height="50" as="geometry"/></mxCell>
+        <mxCell id="sqlp" value="Azure SQL (Private Endpoint)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="900" y="120" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="kvp" value="Azure Key Vault" style="shape=process;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="900" y="200" width="220" height="50" as="geometry"/></mxCell>
+        <mxCell id="ef" edge="1" parent="1" source="u" target="fd"/><mxCell id="ea" edge="1" parent="1" source="fd" target="asw"/>
+        <mxCell id="ec" edge="1" parent="1" source="fd" target="asa"/><mxCell id="ed" edge="1" parent="1" source="asa" target="sqlp"/>
+        <mxCell id="ee" edge="1" parent="1" source="asw" target="kvp"/>
+      </root></mxGraphModel>
+  </diagram>
+</mxfile>

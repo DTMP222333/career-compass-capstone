@@ -1,0 +1,1212 @@
+﻿/* ================================
+    GLOBAL RESET & BASE STYLES
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #003366, #4a8fd8);
+    color: #1f2933;
+}
+
+/* ================================
+    APP CONTAINER (index page)
+================================ */
+.app-container {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    max-width: 880px;
+    width: 92%;
+    padding: 30px 32px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 14px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+    .logo .icon {
+        font-size: 36px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+.logo-text h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #003366;
+}
+
+.logo-text p {
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ================================
+    UNIVERSAL CARD STYLE
+================================ */
+.card {
+    background: #ffffff;
+    padding: 32px 36px;
+    border-radius: 18px;
+    border: 1px solid #e9ecf3;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
+    width: 70%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ================================
+    LANDING PAGE (Make like Login)
+================================ */
+.landing-box {
+    background: #ffffff;
+    width: 460px;
+    padding: 40px 40px 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.landing-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+    .landing-logo .logo-icon-big {
+        font-size: 58px;
+    }
+
+    .landing-logo .logo-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: #003366;
+        line-height: 1.1;
+    }
+
+.inner-card {
+    background: #ffffff;
+    padding: 26px;
+    border-radius: 16px;
+    border: 1px solid #e9ecf3;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.landing-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 12px;
+}
+
+.landing-text {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 22px;
+}
+
+/* ================================
+    BUTTONS (Unified everywhere)
+================================ */
+.primary-btn,
+.secondary-btn,
+.login-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+/* MAIN BLUE BUTTON */
+.primary-btn,
+.login-button {
+
+    background: #003366;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0, 51, 102, 0.4);
+}
+
+    .primary-btn:hover,
+    .login-button:hover {
+        background: #00244f;
+    }
+
+/* SECONDARY BUTTON */
+.secondary-btn {
+    background: #ffffff;
+    color: #003366;
+    border: 1px solid #003366;
+}
+
+    .secondary-btn:hover {
+        background: #eaf0ff;
+    }
+
+/* ================================
+    FORM INPUTS
+================================ */
+.form, .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background: #f9fafb;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+    input:focus,
+    select:focus {
+        border-color: #003366;
+        box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.15);
+        background: #ffffff;
+    }
+
+.dob-row {
+    display: flex;
+    gap: 12px;
+}
+
+/* ================================
+    LOADING SPINNER
+================================ */
+.spinner {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 4px solid #e5e7eb;
+    border-top-color: #003366;
+    animation: spin 1s linear infinite;
+    margin: 12px auto 16px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+    RESULTS + ERROR
+================================ */
+#careerName {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+#careerDescription {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.result-actions {
+    margin-top: 18px;
+}
+
+/* ================================
+    ERROR MESSAGE
+================================ */
+.error-message {
+    font-size: 13px;
+    color: #b91c1c;
+}
+
+/* ================================
+    FOOTER
+================================ */
+.footer {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* ================================
+    LOGIN PAGE (Dedicated)
+================================ */
+.login-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #003366, #2069b0);
+    display: flex;
+    align-items: flex-start; /* push content toward top */
+    justify-content: center; /* keep it centered horizontally */
+    padding-top: 80px; /* space from top */
+    padding-bottom: 200px; /* a bit of bottom padding */
+}
+
+/* OUTER LOGIN CARD */
+.login-box {
+    background: #ffffff;
+    width: 420px;
+    padding: 40px 40px 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    text-align: left;
+    margin-top: 80px; /* adds space so dropdown has room to open downward */
+}
+
+/* LOGIN LOGO */
+.login-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.logo-icon-big {
+    font-size: 54px;
+}
+
+.logo-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #003366;
+    line-height: 1.1;
+}
+
+/* LOGIN HEADER */
+.login-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+/* INNER LOGIN CARD (form) */
+.inner-card {
+    background: #ffffff;
+    padding: 20px 20px 40px; /* more bottom padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 20px; /* gives more space above */
+}
+
+/* LOGIN FOOTER */
+.login-footer {
+    text-align: center;
+    margin-top: 22px;
+    color: #777;
+    font-size: 12px;
+}
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
+
+/* Force downward open */
+.custom-dropdown {
+    margin-bottom: 40px;
+}
+
+/* ================================
+   UPGRADED CAREER COMPASS HEADER
+================================ */
+.login-logo {
+    display: flex;
+    flex-direction: column; /* stack icon + text */
+    align-items: center; /* center horizontally */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* Bigger icon circle */
+.logo-icon-big {
+    font-size: 70px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Center text */
+.logo-text {
+    text-align: center;
+}
+
+    /* Make title bold + clean */
+    .logo-text h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #003366;
+        letter-spacing: 0.5px;
+        margin-bottom: 3px;
+    }
+
+    /* Subtitle softer */
+    .logo-text p {
+        font-size: 14px;
+        font-weight: 500;
+        color: #5a6a85;
+        margin-top: -5px;
+    }
+
+/* Subtle fade-in animation */
+.login-logo {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   CENTERED LOGO + TITLE (SIDE-BY-SIDE)
+================================ */
+
+.login-logo {
+    display: flex;
+    flex-direction: row; /* side-by-side */
+    align-items: center;
+    justify-content: center; /* centered horizontally */
+    gap: 18px; /* space between icon + text */
+    margin-bottom: 25px;
+}
+
+/* Icon styling */
+.logo-icon-big {
+    font-size: 60px; /* bigger compass */
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Title + subtitle */
+.logo-text {
+    text-align: left; /* left aligned inside center */
+}
+
+    .logo-text h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #003366;
+        margin: 0;
+    }
+
+    .logo-text p {
+        font-size: 14px;
+        color: #5a6a85;
+        margin-top: 2px;
+    }
+
+/* Soft fade-in animation */
+.login-logo {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Make logo + text align horizontally like index page */
+.login-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto 20px auto;
+    justify-content: center;
+}
+
+    /* Match index page icon style */
+    .login-logo .logo-icon {
+        width: 70px;
+        height: 70px;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Match typography from index */
+    .login-logo .logo-text h1 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 800;
+        color: #003366;
+    }
+
+    .login-logo .logo-text p {
+        margin: 0;
+        font-size: 14px;
+        color: #4b5563;
+    }
+/* ===== LOGIN LOGO (MATCH INDEX PAGE) ===== */
+.login-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-icon-big {
+    font-size: 70px; /* same size as index */
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.login-logo .logo-text h1 {
+    font-size: 32px; /* bigger title */
+    font-weight: 800;
+    color: #003366;
+    margin: 0;
+}
+
+.login-logo .logo-text p {
+    font-size: 15px;
+    color: #4b5563;
+    margin-top: 3px;
+}
+/* ===== LOGIN CARD WIDTH UPDATE ===== */
+.login-box {
+    background: #ffffff;
+    width: 500px; /* WAS 420px → bigger like index page */
+    padding: 45px 45px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    margin-top: 80px; /* adds space so dropdown has room to open downward */
+}
+.login-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #003366;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* UNIFORM LOGO + TITLE (same as index page) */
+.login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.logo-icon-big {
+    width: 70px;
+    height: 70px;
+    font-size: 52px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.logo-text h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #003366;
+}
+
+.logo-text p {
+    font-size: 14px;
+    color: #4b5563;
+}
+.login-box {
+    background: #ffffff;
+    width: 480px;
+    padding: 40px 40px 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    text-align: left;
+    margin-top: 200px;
+}
+.login-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #003366;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+/* Parent container holding month + year */
+.dob-row {
+    display: flex;
+    gap: 13px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+}
+
+/* Month + Year boxes styling */
+.select-box {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+    /* Actual select element */
+    .select-box select {
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-size: 16px;
+        color: #1a1a1a;
+        outline: none;
+        cursor: pointer;
+
+    }
+/* Force dropdown to open downward */
+select {
+    transform-origin: top center !important;
+}
+
+    /* Prevent auto flip upward */
+    select:focus {
+        position: relative;
+        overflow: visible !important;
+    }
+
+/* ================================
+   APPLE STYLE CUSTOM DROPDOWNS
+================================ */
+
+.dropdown {
+    flex: 1;
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: all 0.2s ease;
+}
+
+    .dropdown:hover {
+        box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        border-color: #b8b8b8;
+    }
+
+.dropdown-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+    .dropdown-selected::after {
+        content: "▾";
+        font-size: 14px;
+        color: #555;
+    }
+
+/* DROPDOWN LIST */
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    margin-top: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    z-index: 999;
+}
+
+.dropdown.open .dropdown-list {
+    max-height: 220px;
+    opacity: 1;
+    overflow-y: auto;
+}
+
+.dropdown-item {
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 14px;
+}
+
+    .dropdown-item:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+        background: #f5f7ff;
+    }
+/* ============================
+   RESULT CARD
+============================ */
+
+.result-card {
+    width: 90%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    text-align: center;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.result-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a2c4e;
+    margin-bottom: 15px;
+}
+
+.career-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #002b57;
+    margin-bottom: 10px;
+}
+
+.career-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.secondary-btn {
+    background: #ffffff;
+    border: 2px solid #0d3b75;
+    color: #0d3b75;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+    .secondary-btn:hover {
+        background: #eaf2ff;
+    }
+
+.primary-btn-outline {
+    background: #0d3b75;
+    border: 2px solid #0d3b75;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+    .primary-btn-outline:hover {
+        background: #002b57;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ============================
+   GENERAL CARD STYLE
+============================ */
+.dashboard-card,
+.inner-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px 25px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+/* ============================
+   CORE NUMBER BOXES
+============================ */
+.num-box {
+    display: flex;
+    justify-content: space-between;
+    background: #eef3ff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.num-title {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.num-value {
+    font-weight: 700;
+    color: #003c92;
+}
+
+/* ============================
+   FIX: override parent container
+============================ */
+.dashboard-container {
+    display: block !important; /* VERY IMPORTANT */
+    width: 100%;
+}
+
+/* ============================
+   LEARN MORE PAGE GRID
+============================ */
+.learnmore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    margin-top: 25px;
+    align-items: start;
+}
+
+/* Two columns */
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Charts sizing */
+#barChart,
+#donutChart {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================
+   BACK LINK
+============================ */
+.back-link {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #2563eb;
+    cursor: pointer;
+    text-align: right;
+}
+
+/* ============================
+   MOBILE RESPONSIVE
+============================ */
+
+.bottom-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.download-btn {
+    background: #0d3b75;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background: #002b57;
+}
+
+.skills-card {
+    min-height: 543px;       
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}
+
+.donut-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+    margin-top: 20px;  
+}
+#donutChart {
+    max-width: 450px;
+    width: 420px;
+    height: 420px;
+}
+
+/* Bottom row layout */
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+/* Centered arrow  */
+.center-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;   /* small clean spacing */
+    cursor: pointer;
+}
+
+.center-toggle .arrow-icon {
+    width: 30px;      /* bigger arrow size */
+    height: 45px;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on expand */
+.center-toggle.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.center-toggle:hover .arrow-icon path {
+    stroke: #555;
+}
+.expand-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 0 25px;
+    margin-bottom: 20px;
+}
+
+/* Expanded state */
+.expand-box.show {
+    max-height: 1200px; /* will animate open */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Formatting for large text content */
+.expand-box h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
+.bottom-row {
+    margin-top: 10px;   /* reduce spacing */
+}
+
+.center-toggle.active .arrow {
+    transform: rotate(180deg);
+}
+.accordion {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 14px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    color: #003b8b;
+}
+
+.accordion-header::after {
+    content: "▾";
+    font-size: 15px;
+    transition: transform 0.3s;
+}
+
+.accordion-header.active::after {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    padding: 0 10px;
+}
+
+.accordion-content.show {
+    max-height: 2000px;
+    padding-bottom: 15px;
+}
+
+.accordion-content p {
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 12px;
+    margin-top: 0px;
+}
+/* ============================
+   BASE GRID LAYOUT
+============================ */
+.learnmore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Columns */
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Full-width card for Career Meaning */
+.full-width-card {
+    grid-column: 1 / -1; 
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Ensure all cards fit inside container */
+.dashboard-card {
+    width: 100%;
+}
+
+/* Bottom row for "Back" + "Download" */
+.bottom-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+}
+
+/* Download button */
+.download-btn {
+    background: #0d3b75;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ============================
+   MOBILE RESPONSIVE FIXES
+============================ */
+@media (max-width: 900px) {
+
+    /* FIX DONUT CHART BREAKING MOBILE */
+    .donut-wrapper {
+        min-width: 0 !important;
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    #donutChart {
+        width: 250px !important;
+        height: 250px !important;
+        max-width: 250px !important;
+    }
+
+    .skills-card {
+        min-height: auto !important;
+        padding-bottom: 20px !important;
+    }
+/* FIX GRID + CARDS */
+.learnmore-grid {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    grid-template-columns: 1fr !important; /* THIS IS THE MISSING FIX */
+}
+
+
+    .left-column,
+    .skills-card,
+    .dashboard-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* FIX MAIN WRAPPER */
+    .login-box,
+    .login-wrapper {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    body, html {
+        overflow-x: hidden !important;
+    }
+    .center-toggle {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+}
+
+.about-intro {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.why-numerology-box h3 {
+    margin-top: 15px;
+}
+
+
+.instruction-example {
+    margin: 15px 0;
+    padding: 10px 15px;
+    background: #ffffff;
+    border-left: 3px solid #1e4db7;
+    border-radius: 6px;
+    font-style: italic;
+}
+.user-instructions-box p {
+    padding-left: 10px;;
+}
+.why-numerology-box p {
+    padding-left: 10px;;
+
+}
+
+.master-info-card {
+    padding: 20px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
