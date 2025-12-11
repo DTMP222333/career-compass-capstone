@@ -1,0 +1,1 @@
+namespace Domain;public class CareerProfile{public int Id{get;set;}public string? FullName{get;set;}public System.DateTime BirthDate{get;set;}public string? PathSuggestion{get;set;}}
